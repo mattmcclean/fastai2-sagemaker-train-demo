@@ -8,6 +8,10 @@ else
   exit 0
 fi
 
+# copy the docker daemon file
+sudo cp utils/daemon.json /etc/docker/daemon.json
+sudo service docker restart
+
 # Do we have GPU support?
 nvidia-smi > /dev/null 2>&1
 if [ $? -eq 0 ]; then
@@ -23,7 +27,6 @@ if [ $? -eq 0 ]; then
 
     curl -s -L https://nvidia.github.io/nvidia-docker/amzn1/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
     sudo yum install -y nvidia-docker2-2.0.3-1.docker17.09.1.ce.amzn1
-    sudo cp daemon.json /etc/docker/daemon.json
     sudo pkill -SIGHUP dockerd
     echo "installed nvidia-docker2"
   else

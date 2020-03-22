@@ -10,6 +10,11 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+
+import subprocess
+#import sys
+#subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'fastai2', 'ipykernel'])
+
 import ast
 import argparse
 import logging
@@ -17,7 +22,6 @@ import json
 import io
 import os
 
-import subprocess
 import shlex
 
 from fastai2.vision.all import *

@@ -20,8 +20,8 @@ ARG TYPE=training
 ARG CUDA_VERSION=
 
 # SageMaker PyTorch image
-FROM 763104351884.dkr.ecr.$REGION.amazonaws.com/pytorch-$TYPE:1.3.1-$ARCH-py36$CUDA_VERSION-ubuntu16.04
+FROM 763104351884.dkr.ecr.$REGION.amazonaws.com/pytorch-$TYPE:1.4.0-$ARCH-py36$CUDA_VERSION-ubuntu16.04
 
-COPY requirements.txt /opt/app/
+COPY oxford-pets/requirements.txt /opt/app/
 
 RUN pip install --no-cache-dir -r /opt/app/requirements.txt
